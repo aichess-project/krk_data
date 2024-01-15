@@ -1,12 +1,12 @@
 import chess, os, csv, datetime
 import concurrent.futures
 import time
-from halfkp_libs.syzygy_lib import Syzygy_Lib
-from halfkp_libs.halfkp_lib import Half_KP_Converter
+from syzygy_lib import Syzygy_Lib
+from halfkp_lib import Half_KP_Converter
 
 class Kkr_Data():
 
-    def __init__(self, out_dir = "/Users/littlecapa/data_lake/krk/data", out_file = "krk_all.csv"):
+    def __init__(self, out_dir = r"..\data", out_file = "krk_all.csv"):
         self.sl = Syzygy_Lib()
         self.hkp_conv = Half_KP_Converter()
         self.board = chess.Board()
@@ -56,9 +56,5 @@ class Kkr_Data():
 
 if __name__ == "__main__":
     kkr_data = Kkr_Data()
-    with concurrent.futures.ProcessPoolExecutor() as executor:
-        # Submit the function for execution in parallel
-        futures = [executor.submit(kkr_data.create_index(i+3+8)) for i in range(8)]
-
-        # Wait for all futures to complete
-        concurrent.futures.wait(futures)
+    for i in [55, 56, 57, 58, 59, 60, 61, 62, 63]:
+        kkr_data.create_index(i)

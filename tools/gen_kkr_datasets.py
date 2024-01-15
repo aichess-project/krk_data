@@ -3,10 +3,10 @@ import random
 
 class Kkr_DataSets():
 
-    types = ['train', 'val', 'test']
-    percentages = [0.1, 0.01, 0.01^01]
+    types = ['train', 'valid', 'test']
+    percentages = [0.1, 0.01, 0.001]
 
-    def __init__(self, out_dir = "/Users/littlecapa/data_lake/krk/data", out_file = "KRk_new.csv"):
+    def __init__(self, out_dir = r"..\data", out_file = "KRk_new.csv"):
         self.out_dir = out_dir
         self.out_file = out_file
         self.threshold = [self.percentages[0], self.percentages[0] + self.percentages[1],  self.percentages[0] + self.percentages[1] + self.percentages[2]]
